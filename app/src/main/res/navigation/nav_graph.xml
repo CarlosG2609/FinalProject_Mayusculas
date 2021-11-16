@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.proyectofinal_mayusculas.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_rulesFragment"
+            app:destination="@id/rulesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_modeSelectionFragment"
+            app:destination="@id/modeSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rulesFragment"
+        android:name="com.example.proyectofinal_mayusculas.RulesFragment"
+        android:label="fragment_rules"
+        tools:layout="@layout/fragment_rules" >
+        <action
+            android:id="@+id/action_rulesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/modeSelectionFragment"
+        android:name="com.example.proyectofinal_mayusculas.ModeSelectionFragment"
+        android:label="fragment_mode_selection"
+        tools:layout="@layout/fragment_mode_selection" >
+        <action
+            android:id="@+id/action_modeSelectionFragment_to_basicModeFragment"
+            app:destination="@id/basicModeFragment" />
+        <action
+            android:id="@+id/action_modeSelectionFragment_to_advancedModeFragment"
+            app:destination="@id/advancedModeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/advancedModeFragment"
+        android:name="com.example.proyectofinal_mayusculas.AdvancedModeFragment"
+        android:label="fragment_advanced_mode"
+        tools:layout="@layout/fragment_advanced_mode" >
+        <action
+            android:id="@+id/action_advancedModeFragment_to_resultadosFragment"
+            app:destination="@id/resultadosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/basicModeFragment"
+        android:name="com.example.proyectofinal_mayusculas.BasicModeFragment"
+        android:label="fragment_basic_mode"
+        tools:layout="@layout/fragment_basic_mode" >
+        <action
+            android:id="@+id/action_basicModeFragment_to_resultadosFragment"
+            app:destination="@id/resultadosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultadosFragment"
+        android:name="com.example.proyectofinal_mayusculas.ResultadosFragment"
+        android:label="fragment_resultados"
+        tools:layout="@layout/fragment_resultados" >
+        <action
+            android:id="@+id/action_resultadosFragment_to_puntuacionesFragment"
+            app:destination="@id/puntuacionesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/puntuacionesFragment"
+        android:name="com.example.proyectofinal_mayusculas.PuntuacionesFragment"
+        android:label="fragment_puntuaciones"
+        tools:layout="@layout/fragment_puntuaciones" >
+        <action
+            android:id="@+id/action_puntuacionesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>

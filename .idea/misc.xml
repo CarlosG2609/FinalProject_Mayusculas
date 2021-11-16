@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/activity_main.xml" value="0.553125" />
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_advanced_mode.xml" value="0.553125" />
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_basic_mode.xml" value="0.553125" />
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_mode_selection.xml" value="0.553125" />
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_puntuaciones.xml" value="0.33" />
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_resultados.xml" value="0.553125" />
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_rules.xml" value="0.553125" />
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/item_tablapuntuacion.xml" value="0.33" />
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/item_todo.xml" value="0.5541666666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
