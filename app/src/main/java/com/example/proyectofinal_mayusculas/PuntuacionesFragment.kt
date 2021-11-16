@@ -45,7 +45,7 @@ class PuntuacionesFragment : Fragment() {
         binding.rvTodo.adapter= adapter
         binding.rvTodo.layoutManager= LinearLayoutManager(context)
 
-        // A lo mejor aqui hay que añadir la parte del video de la semana 9 LUNES en el minuto 1:15:00
+        // A lo mejor aqui hay que añadir la parte del video de la semana 9 LUNES en el minuto 1:15:00,
         // para actualizar y notificar al adaptador que se ha agregado un nuevo elemento a la lista
 
 
