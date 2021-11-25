@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.proyectofinal_mayusculas.databinding.FragmentHomeBinding
 import com.example.proyectofinal_mayusculas.databinding.FragmentRulesBinding
+import com.example.proyectofinal_mayusculas.viewmodels.ProjectViewModel
+import com.example.proyectofinal_mayusculas.viewmodels.UsuarioViewModel
+import com.example.proyectofinal_mayusculas.viewmodels.UsuariosViewModelFactory
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,6 +25,11 @@ private const val ARG_PARAM2 = "param2"
 class RulesFragment : Fragment() {
 
     private val viewModel: ProjectViewModel by activityViewModels()
+    private val viewModeldb: UsuarioViewModel by activityViewModels{
+        UsuariosViewModelFactory(
+            (activity?.application as UsuarioApp).database.DaoPrincipal()
+        )
+    }
 
     private var _binding: FragmentRulesBinding? = null
     private val binding get()= _binding!!
