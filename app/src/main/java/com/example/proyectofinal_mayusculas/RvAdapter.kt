@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectofinal_mayusculas.databinding.ItemTablapuntuacionBinding
 
-class RvAdapter(var todos: List<Todo>): RecyclerView.Adapter<RvAdapter.ViewHolder>() {
+class RvAdapter(var todos: List<Usuario>): RecyclerView.Adapter<RvAdapter.ViewHolder>() {
     class ViewHolder(val binding: ItemTablapuntuacionBinding): RecyclerView.ViewHolder(binding.root) {
     }
 
@@ -18,8 +18,8 @@ class RvAdapter(var todos: List<Todo>): RecyclerView.Adapter<RvAdapter.ViewHolde
     // Aquí es donde se debe de actualizar el adaptador (enlaza datos con elementos del layout)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.apply {
-            textViewUser.text= todos[position].username
-            textViewScore.text= todos[position].score.toString()
+            textViewUser.text= todos[position].nombre
+            textViewScore.text= todos[position].calif.toString()
         }
     }
 

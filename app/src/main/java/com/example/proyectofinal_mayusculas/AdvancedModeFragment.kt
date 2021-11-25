@@ -6,9 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.proyectofinal_mayusculas.databinding.FragmentAdvancedModeBinding
-import com.example.proyectofinal_mayusculas.databinding.FragmentHomeBinding
+import com.example.proyectofinal_mayusculas.viewmodels.ProjectViewModel
+import com.example.proyectofinal_mayusculas.viewmodels.UsuarioViewModel
+import com.example.proyectofinal_mayusculas.viewmodels.UsuariosViewModelFactory
+import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,6 +27,11 @@ private const val ARG_PARAM2 = "param2"
 class AdvancedModeFragment : Fragment() {
 
     private val viewModel: ProjectViewModel by activityViewModels()
+    private val viewModeldb: UsuarioViewModel by activityViewModels{
+        UsuariosViewModelFactory(
+            (activity?.application as UsuarioApp).database.DaoPrincipal()
+        )
+    }
 
     private var _binding: FragmentAdvancedModeBinding? = null
     private val binding get()= _binding!!
@@ -48,6 +57,13 @@ class AdvancedModeFragment : Fragment() {
         //AQUI SE AGREGAN LA PARTE DE LAS FUNCIONES DE CADA BOTON
         binding.buttonResultsAdvanced.setOnClickListener{
             findNavController().navigate(R.id.action_advancedModeFragment_to_resultadosFragment)
+        }
+
+        // SI SE QUIERE INSERTAR ALGO A LA BASE DE DATOS, SE PUEDE HACER CON viewModeldb.NOMBRE_FUNCION
+        // LAS FUNCIONES DISPONIBLES SON LAS MISMAS QUE PARA UsuarioDao
+        lifecycleScope.launch {
+            // Asi se debe de utilizar, por poner algun ejemplo
+            //viewModeldb.getAllUsuarios()
         }
 
 
