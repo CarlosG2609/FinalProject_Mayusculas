@@ -16,16 +16,6 @@ import com.example.proyectofinal_mayusculas.viewmodels.UsuarioViewModel
 import com.example.proyectofinal_mayusculas.viewmodels.UsuariosViewModelFactory
 import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [PuntuacionesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PuntuacionesFragment : Fragment() {
 
     private val viewModel: ProjectViewModel by activityViewModels()
@@ -34,7 +24,6 @@ class PuntuacionesFragment : Fragment() {
             (activity?.application as UsuarioApp).database.DaoPrincipal()
         )
     }
-
     private var _binding: FragmentPuntuacionesBinding? = null
     private val binding get()= _binding!!
 
@@ -53,7 +42,7 @@ class PuntuacionesFragment : Fragment() {
 
         // Inicializar el adaptador y utilizar el RecyclerView
         lifecycleScope.launch {
-            val lista = viewModeldb.get10ScoreAsc()
+            val lista = viewModeldb.get10ScoreAsc(viewModel.type)
             if (lista != null) {
                 val adapter = RvAdapter(lista)
                 binding.rvTodo.adapter = adapter

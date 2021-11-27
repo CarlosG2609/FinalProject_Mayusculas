@@ -13,7 +13,7 @@ class UsuarioViewModel(private val usuarioDao: UsuarioDao): ViewModel() {
     suspend fun getAllUsuarios(): List<Usuario>? = usuarioDao.getAllUsuarios()
     suspend fun getAllNameAsc(): List<Usuario>? = usuarioDao.getAllNameAsc()
     suspend fun getAllScoreAsc(): List<Usuario>? = usuarioDao.getAllScoreAsc()
-    suspend fun get10ScoreAsc(): List<Usuario>? = usuarioDao.get10ScoreAsc()
+    suspend fun get10ScoreAsc(tipo: String): List<Usuario>? = usuarioDao.get10ScoreAsc(tipo)
     suspend fun getByID(id: Int): Usuario? = usuarioDao.getByID(id)
     suspend fun getByName(nombre: String): List<Usuario>? = usuarioDao.getByName(nombre)
     suspend fun getByScore(calif: Int): List<Usuario>? = usuarioDao.getByScore(calif)

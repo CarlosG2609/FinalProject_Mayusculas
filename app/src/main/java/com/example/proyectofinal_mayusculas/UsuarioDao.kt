@@ -14,8 +14,8 @@ interface UsuarioDao {
     @Query("SELECT * from Usuario order by calif ASC")
     suspend fun getAllScoreAsc(): List<Usuario>?
 
-    @Query("SELECT * from Usuario order by calif DESC LIMIT 10")
-    suspend fun get10ScoreAsc(): List<Usuario>?
+    @Query("SELECT * from Usuario where tipo =:tipo order by calif DESC LIMIT 10")
+    suspend fun get10ScoreAsc(tipo: String): List<Usuario>?
 
     @Query("SELECT * from Usuario where id = :id")
     suspend fun getByID(id: Int): Usuario?

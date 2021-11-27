@@ -10,9 +10,7 @@ abstract class AppDatabase : RoomDatabase(){
 
     abstract fun DaoPrincipal(): UsuarioDao
 
-
     companion object{
-
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
