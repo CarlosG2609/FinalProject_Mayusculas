@@ -9,10 +9,12 @@ class ProjectViewModel: ViewModel() {
     // de botones en el programa.
     private var _name: String= ""
     private var _score: Int= 0
+    private var _type: String= ""
     private val _todos= mutableListOf<Todo>()
 
     val name get() = _name
     val score get() = _score
+    val type get() = _type
     val todo= _todos
 
     // Aquí puedo agregar funciones para actualizar la base de datos
@@ -21,5 +23,8 @@ class ProjectViewModel: ViewModel() {
     }
     fun changeScore(nuevoScore: Int){
         _score= nuevoScore
+    }
+    fun changeType(nuevoType: String){
+        _type= nuevoType
     }
 }

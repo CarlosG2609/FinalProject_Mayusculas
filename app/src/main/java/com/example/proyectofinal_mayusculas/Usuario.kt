@@ -9,7 +9,8 @@ data class Usuario(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @NonNull var nombre: String,
     @NonNull var calif: Int,
+    @NonNull var tipo: String,
     @NonNull var fecha: String
 ){
-    constructor(nombre: String, calif: Int, fecha: String): this(0,nombre, calif, fecha)
+    constructor(nombre: String, calif: Int, tipo: String, fecha: String): this(0,nombre, calif, tipo, fecha)
 }
