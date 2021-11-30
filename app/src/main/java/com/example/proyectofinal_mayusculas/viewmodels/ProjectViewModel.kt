@@ -11,11 +11,19 @@ class ProjectViewModel: ViewModel() {
     private var _score: Int= 0
     private var _type: String= ""
     private val _todos= mutableListOf<Todo>()
+    private var _sentences = arrayOfNulls<String>(100)
+    private var _answers = arrayOfNulls<String>(100)
+    private var _questionNumber: Int = 0
+    private var _rightAnswers: Int = 0
 
     val name get() = _name
     val score get() = _score
     val type get() = _type
     val todo= _todos
+    val sentence get() = _sentences
+    val answers get() = _answers
+    val questionNumber get() = _questionNumber
+    val rightAnswers get() = _rightAnswers
 
     // Aquí puedo agregar funciones para actualizar la base de datos
     fun changeName(nuevoNombre: String){
@@ -26,5 +34,37 @@ class ProjectViewModel: ViewModel() {
     }
     fun changeType(nuevoType: String){
         _type= nuevoType
+    }
+    fun setSentence(s: String, i:Int){
+        _sentences[i] = s
+    }
+    fun setAnswer(s: String, i:Int){
+        _answers[i] = s
+    }
+    fun getSentence(i:Int): String{
+        return _sentences[i].toString()
+    }
+    fun getAnswer(i:Int): String{
+        return _answers[i].toString()
+    }
+    fun setQuestionNumber(i: Int){
+        _questionNumber = i
+    }
+    fun resetAnswers(){
+        _rightAnswers = 0
+    }
+
+    fun addRigthAnswer(){
+        _rightAnswers++
+    }
+    fun showSentence(){
+        for(i in 1..40){
+            println(_sentences[i])
+        }
+    }
+    fun showAnswers(){
+        for(i in 1..40){
+            println(_answers[i])
+        }
     }
 }
