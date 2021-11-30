@@ -44,6 +44,7 @@ class HomeFragment : Fragment() {
             val sNombre= binding.plaintextInputNombre.text.toString()
             viewModel.changeName(sNombre)
             findNavController().navigate(R.id.action_homeFragment_to_modeSelectionFragment)
+
         }
 
 

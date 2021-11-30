@@ -34,7 +34,7 @@ class BasicModeFragment : Fragment() {
         binding.buttonResultsBasic.setOnClickListener{
             findNavController().navigate(R.id.action_basicModeFragment_to_resultadosFragment)
         }
-
+        binding.ejercicioTextView.setText("llegó el visitante de el salvador.")
         // Inflate the layout for this fragment
         return binding.root
     }
