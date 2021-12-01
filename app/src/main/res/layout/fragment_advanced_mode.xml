@@ -25,8 +25,10 @@
         android:text="Ver resultados"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.935"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_advanced_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/ll_advanced_layout"
+        app:layout_constraintVertical_bias="1.0" />
 
     <LinearLayout
         android:id="@+id/ll_advanced_layout"

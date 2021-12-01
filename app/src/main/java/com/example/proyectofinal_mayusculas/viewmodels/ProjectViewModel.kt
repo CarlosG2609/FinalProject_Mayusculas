@@ -13,7 +13,9 @@ class ProjectViewModel: ViewModel() {
     private val _todos= mutableListOf<Todo>()
     private var _sentences = arrayOfNulls<String>(100)
     private var _answers = arrayOfNulls<String>(100)
-    private var _questionNumber: Int = 0
+    private var _words = arrayOfNulls<String>(100)
+    private var _wordAnswers = arrayOfNulls<String>(100)
+    private var _questionNumber: Int = 1
     private var _rightAnswers: Int = 0
 
     val name get() = _name
@@ -22,6 +24,8 @@ class ProjectViewModel: ViewModel() {
     val todo= _todos
     val sentence get() = _sentences
     val answers get() = _answers
+    val word get() = _words
+    val wordAnswers get() = _wordAnswers
     val questionNumber get() = _questionNumber
     val rightAnswers get() = _rightAnswers
 
@@ -40,6 +44,18 @@ class ProjectViewModel: ViewModel() {
     }
     fun setAnswer(s: String, i:Int){
         _answers[i] = s
+    }
+    fun setWordAnswer(s:String, i:Int){
+        _wordAnswers[i] = s
+    }
+    fun getWordAnswer(i:Int):String{
+        return wordAnswers[i].toString()
+    }
+    fun setWord(s:String, i:Int){
+        _words[i] = s
+    }
+    fun getWord(i:Int): String{
+        return _words[i].toString()
     }
     fun getSentence(i:Int): String{
         return _sentences[i].toString()
@@ -65,6 +81,11 @@ class ProjectViewModel: ViewModel() {
     fun showAnswers(){
         for(i in 1..40){
             println(_answers[i])
+        }
+    }
+    fun showWordAnswers(){
+        for(i in 1..42){
+            println(word[i] + " " + wordAnswers[i])
         }
     }
 }

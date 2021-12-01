@@ -35,8 +35,8 @@ class AdvancedModeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentAdvancedModeBinding.inflate(inflater, container, false)
-        var cont = 0
-        viewModel.setQuestionNumber(0)
+        var cont = 1
+        viewModel.setQuestionNumber(cont)
         viewModel.resetAnswers()
         loadAnswers()
         loadSentences()
@@ -87,6 +87,9 @@ class AdvancedModeFragment : Fragment() {
                         }
                     }
                 }
+                if(input == ""){
+                    input = "0"
+                }
                 if(answer == input){
                     println("Correcto")
                     viewModel.addRigthAnswer()
@@ -107,6 +110,9 @@ class AdvancedModeFragment : Fragment() {
                         }
                     }
                 }
+                if(input == ""){
+                    input = "0"
+                }
                 println("Answer " + answer)
                 println("Input " + input)
                 if(answer == input){
@@ -115,13 +121,9 @@ class AdvancedModeFragment : Fragment() {
 
                 }else{
                     println("Mal")
-                    for(i in phraseDivided.indices){
-                        println(boolAnswers[i])
-                    }
                 }
 
-                cont++
-                viewModel.setQuestionNumber(cont)
+                viewModel.setQuestionNumber(cont++)
                 ll_main.removeAllViews()
                 input = ""
                 randomNumber = (1..38).random()
@@ -148,7 +150,9 @@ class AdvancedModeFragment : Fragment() {
                 }
 
             }
-            println(viewModel.questionNumber)
+            println("Question Number: " + viewModel.questionNumber)
+            println("Right Answers: " + viewModel.rightAnswers)
+
         }
 
         // SI SE QUIERE INSERTAR ALGO A LA BASE DE DATOS, SE PUEDE HACER CON viewModeldb.NOMBRE_FUNCION
