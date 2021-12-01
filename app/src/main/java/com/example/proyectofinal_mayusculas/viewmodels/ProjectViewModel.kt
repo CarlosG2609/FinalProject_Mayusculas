@@ -2,6 +2,7 @@ package com.example.proyectofinal_mayusculas.viewmodels
 
 import androidx.lifecycle.ViewModel
 import com.example.proyectofinal_mayusculas.Todo
+import com.example.proyectofinal_mayusculas.Todorules
 
 class ProjectViewModel: ViewModel() {
 
@@ -17,6 +18,7 @@ class ProjectViewModel: ViewModel() {
     private var _wordAnswers = arrayOfNulls<String>(100)
     private var _questionNumber: Int = 1
     private var _rightAnswers: Int = 0
+    private var _rules= mutableListOf<Todorules>()
 
     val name get() = _name
     val score get() = _score
@@ -28,6 +30,7 @@ class ProjectViewModel: ViewModel() {
     val wordAnswers get() = _wordAnswers
     val questionNumber get() = _questionNumber
     val rightAnswers get() = _rightAnswers
+    val rules= _rules
 
     // Aquí puedo agregar funciones para actualizar la base de datos
     fun changeName(nuevoNombre: String){
