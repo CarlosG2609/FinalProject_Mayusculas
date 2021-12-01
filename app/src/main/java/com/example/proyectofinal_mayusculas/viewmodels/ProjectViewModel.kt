@@ -12,8 +12,9 @@ class ProjectViewModel: ViewModel() {
     private var _score: Int= 0
     private var _type: String= ""
     private val _todos= mutableListOf<Todo>()
-    private var _sentences = arrayOfNulls<String>(100)
-    private var _answers = arrayOfNulls<String>(100)
+    private var _sentences = arrayOfNulls<String>(50)
+    private var _answers = arrayOfNulls<String>(50)
+    private var _appliedRules= arrayOfNulls<String>(50)
     private var _words = arrayOfNulls<String>(100)
     private var _wordAnswers = arrayOfNulls<String>(100)
     private var _questionNumber: Int = 1
@@ -26,6 +27,7 @@ class ProjectViewModel: ViewModel() {
     val todo= _todos
     val sentence get() = _sentences
     val answers get() = _answers
+    val appliedRules get() = _appliedRules
     val word get() = _words
     val wordAnswers get() = _wordAnswers
     val questionNumber get() = _questionNumber
@@ -48,6 +50,9 @@ class ProjectViewModel: ViewModel() {
     fun setAnswer(s: String, i:Int){
         _answers[i] = s
     }
+    fun setAppliedRules(s: String, i: Int){
+        _appliedRules[i]= s
+    }
     fun setWordAnswer(s:String, i:Int){
         _wordAnswers[i] = s
     }
@@ -65,6 +70,9 @@ class ProjectViewModel: ViewModel() {
     }
     fun getAnswer(i:Int): String{
         return _answers[i].toString()
+    }
+    fun getAppliedRules(i: Int): String{
+        return _appliedRules[i].toString()
     }
     fun setQuestionNumber(i: Int){
         _questionNumber = i
