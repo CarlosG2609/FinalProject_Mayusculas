@@ -4,25 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdvancedModeFragment">
+    tools:context=".AdvancedModeFragment"
+    android:layout_gravity="center"
+    android:foregroundGravity="center"
+    tools:layout_gravity="center" >
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_titleAvanzado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="Avanzado"
+        android:layout_marginTop="10dp"
+        android:text="@string/ejercicios_avanzados"
+        android:fontFamily="sans-serif-black"
+        android:textColor="#039BE5"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView_instruccionesAdvanced"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/instruccionesAdvanced"
+        android:textColor="@color/secondaryDarkColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_titleAvanzado" />
+
+    <LinearLayout
+        android:id="@+id/ll_advanced_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/clear_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_instruccionesAdvanced">
+    </LinearLayout>
+
     <Button
         android:id="@+id/button_results_advanced"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:text="Ver resultados"
+        android:layout_marginBottom="10dp"
+        android:text="@string/siguiente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.935"
@@ -30,26 +57,13 @@
         app:layout_constraintTop_toBottomOf="@+id/ll_advanced_layout"
         app:layout_constraintVertical_bias="1.0" />
 
-    <LinearLayout
-        android:id="@+id/ll_advanced_layout"
-        android:layout_width="409dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="101dp"
-        android:layout_marginBottom="43dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/clear_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
-
     <Button
         android:id="@+id/clear_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="9dp"
-        android:text="Clear"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/clear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll_advanced_layout" />
@@ -58,12 +72,6 @@
         android:id="@+id/simpleChronometer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="348dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

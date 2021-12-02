@@ -5,13 +5,14 @@
       <map>
         <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/drawable/ic_launcher_background.xml" value="0.5703125" />
         <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/activity_main.xml" value="0.553125" />
-        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_advanced_mode.xml" value="0.553125" />
-        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_basic_mode.xml" value="0.553125" />
-        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_home.xml" value="0.33" />
-        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_mode_selection.xml" value="0.553125" />
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_advanced_mode.xml" value="0.160676532769556" />
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_basic_mode.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_home.xml" value="0.67" />
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_mode_selection.xml" value="0.33" />
         <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_puntuaciones.xml" value="0.33" />
-        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_resultados.xml" value="0.553125" />
-        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_rules.xml" value="0.4564459930313589" />
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_resultados.xml" value="0.33" />
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/fragment_rules.xml" value="0.33" />
+        <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/item_puntostiempo.xml" value="0.5385416666666667" />
         <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/item_reglas.xml" value="0.447098976109215" />
         <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/item_tablapuntuacion.xml" value="0.33" />
         <entry key="..\:/Users/Charles/Documents/Campus/AndroidStudio/ProyectoFinal_Mayusculas/app/src/main/res/layout/item_todo.xml" value="0.5541666666666667" />

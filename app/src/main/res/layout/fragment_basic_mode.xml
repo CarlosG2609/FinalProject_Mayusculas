@@ -7,52 +7,71 @@
     android:layout_gravity="center"
     android:foregroundGravity="center"
     tools:context=".BasicModeFragment"
-    tools:layout_gravity="center">
+    tools:layout_gravity="center" >
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_titlePrincipiante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-black"
-        android:text="Principiante"
-        android:textColor="#03A9F4"
+        android:text="@string/principiante"
+        android:textColor="#039BE5"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_instruccionesPrincipiante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/instruccionesPrincipiante"
+        android:textColor="@color/secondaryDarkColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_titlePrincipiante" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutBasic"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/clearBasicButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_instruccionesPrincipiante">
+    </LinearLayout>
 
     <Button
         android:id="@+id/button_results_basic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="Ver resultados"
+        android:layout_marginBottom="10dp"
+        android:text="@string/siguiente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.935"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayoutBasic"
-        android:layout_width="348dp"
-        android:layout_height="507dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/button_results_basic"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.304"></LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutBasic"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/clearBasicButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="1dp"
-        android:text="Clear"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="9dp"
+        android:text="@string/clear"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayoutBasic" />
+
+    <Chronometer
+        android:id="@+id/simpleChronometer_basic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

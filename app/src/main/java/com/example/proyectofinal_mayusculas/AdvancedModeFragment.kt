@@ -37,14 +37,13 @@ class AdvancedModeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentAdvancedModeBinding.inflate(inflater, container, false)
-
         val tiempo= binding.simpleChronometer
-        tiempo.start()
+
+        if (viewModel.type=="AvanzadoReloj"){ tiempo.start() }
 
         var cont = 1
         viewModel.setQuestionNumber(cont)
         viewModel.resetAnswers()
-
 
         var input = ""
         var sNormas= ""
@@ -53,8 +52,7 @@ class AdvancedModeFragment : Fragment() {
         val ll_main = binding.llAdvancedLayout as LinearLayout
         var randomNumber = (1..38).random()
         var answer = viewModel.getAnswer(randomNumber)
-        var phraseDivided = arrayOfNulls<String>(13)
-        phraseDivided = viewModel.getSentence(randomNumber).split(" ").toTypedArray()
+        var phraseDivided = viewModel.getSentence(randomNumber).split(" ").toTypedArray()
         var boolAnswers = BooleanArray(20)
         for (i in phraseDivided.indices) {
             val button_dynamic = Button(context)
@@ -65,6 +63,13 @@ class AdvancedModeFragment : Fragment() {
             button_dynamic.setBackgroundColor(Color.parseColor("#C3BCBB"))
             button_dynamic.isAllCaps = false
             button_dynamic.text = phraseDivided[i]
+            if(phraseDivided.size > 9){
+                button_dynamic.textSize = 12.toFloat()
+            }else if(phraseDivided.size in 6..9){
+                button_dynamic.textSize = 20.toFloat()
+            }else{
+                button_dynamic.textSize = 30.toFloat()
+            }
             button_dynamic.setOnClickListener(View.OnClickListener{
                 button_dynamic.setBackgroundColor(Color.parseColor("#1a7ece"))
                 if(button_dynamic.isPressed){
@@ -110,28 +115,38 @@ class AdvancedModeFragment : Fragment() {
                     sNormas+= viewModel.getAppliedRules(randomNumber)+","
                 }
 
-                sNormasFinal= sNormas.substring(0, sNormas.length-1)                  // String
-                val aNormasFinal= sNormasFinal.split(",").toTypedArray()    // Array
-                val sortedNormas= aNormasFinal.distinct().groupBy { it.last() }
+                if (sNormas != ""){
+                    sNormasFinal= sNormas.substring(0, sNormas.length-1)                  // String
+                    val aNormasFinal= sNormasFinal.split(",").toTypedArray()    // Array
+                    val sortedNormas= aNormasFinal.distinct().groupBy { it.last() }
 
-                var firstRules= sortedNormas.values.elementAt(0)
-                val mutableFirst: MutableList<Int> = mutableListOf()
-                for (i in firstRules.indices){
-                    mutableFirst.add(firstRules.elementAt(i).substring(0, firstRules.elementAt(i).length -1).toInt())
+                    var firstRules= sortedNormas.values.elementAtOrNull(0)
+                    if (firstRules != null){
+                        val mutableFirst: MutableList<Int> = mutableListOf()
+                        for (i in firstRules.indices){
+                            mutableFirst.add(firstRules.elementAt(i).substring(0, firstRules.elementAt(i).length -1).toInt())
+                        }
+                        val intsFirst = mutableFirst.map { it.toInt() }.toTypedArray().sorted()
+                        viewModel.changeNormasA(intsFirst.toString())
+                    } else{ viewModel.changeNormasA("") }
+
+                    var secondRules= sortedNormas.values.elementAtOrNull(1)
+                    if (secondRules != null) {
+                        val mutableSecond: MutableList<Int> = mutableListOf()
+                        for (i in secondRules.indices){
+                            mutableSecond.add(secondRules.elementAt(i).substring(0, secondRules.elementAt(i).length -1).toInt())
+                        }
+                        val intsSecond = mutableSecond.map { it.toInt() }.toTypedArray().sorted()
+                        viewModel.changeNormasB(intsSecond.toString())
+                    } else{ viewModel.changeNormasB("") }
+                } else{
+                    viewModel.changeNormasA("")
+                    viewModel.changeNormasB("")
                 }
-                val intsFirst = mutableFirst.map { it.toInt() }.toTypedArray().sorted()
-                viewModel.changeNormasA(intsFirst.toString())
 
-
-                var secondRules= sortedNormas.values.elementAt(1)
-                val mutableSecond: MutableList<Int> = mutableListOf()
-                for (i in secondRules.indices){
-                    mutableSecond.add(secondRules.elementAt(i).substring(0, secondRules.elementAt(i).length -1).toInt())
-                }
-                val intsSecond = mutableSecond.map { it.toInt() }.toTypedArray().sorted()
-                viewModel.changeNormasB(intsSecond.toString())
                 viewModel.setQuestionNumber(cont++)
-                tiempo.stop()
+                if (viewModel.type=="AvanzadoReloj"){ tiempo.stop() }
+                viewModel.changeTiempo(tiempo.text.toString())
 
                 findNavController().navigate(R.id.action_advancedModeFragment_to_resultadosFragment)
             }else{
@@ -153,7 +168,6 @@ class AdvancedModeFragment : Fragment() {
                 if(answer == input){
                     Toast.makeText(context, "Respuesta Correcta", Toast.LENGTH_SHORT).show()
                     viewModel.addRigthAnswer()
-
                 }else{
                     sNormas+= viewModel.getAppliedRules(randomNumber)+","
                     Toast.makeText(context, "Respuesta Incorrecta", Toast.LENGTH_SHORT).show()
@@ -166,7 +180,6 @@ class AdvancedModeFragment : Fragment() {
                 answer = viewModel.getAnswer(randomNumber)
                 phraseDivided = viewModel.getSentence(randomNumber).split(" ").toTypedArray()
                 boolAnswers = BooleanArray(20)
-                //boolAnswers.fill(false, 1,20)
                 for (i in phraseDivided.indices) {
                     val button_dynamic = Button(context)
                     button_dynamic.layoutParams = LinearLayout.LayoutParams(
@@ -176,6 +189,13 @@ class AdvancedModeFragment : Fragment() {
                     button_dynamic.setBackgroundColor(Color.parseColor("#C3BCBB"))
                     button_dynamic.isAllCaps = false
                     button_dynamic.text = phraseDivided[i]
+                    if(phraseDivided.size > 9){
+                        button_dynamic.textSize = 12.toFloat()
+                    }else if(phraseDivided.size in 6..9){
+                        button_dynamic.textSize = 20.toFloat()
+                    }else{
+                        button_dynamic.textSize = 30.toFloat()
+                    }
                     button_dynamic.setOnClickListener(View.OnClickListener{
                         button_dynamic.setBackgroundColor(Color.parseColor("#1a7ece"))
                         if(button_dynamic.isPressed){
@@ -184,16 +204,9 @@ class AdvancedModeFragment : Fragment() {
                     })
                     ll_main.addView(button_dynamic)
                 }
+                if (viewModel.questionNumber == 9){ binding.buttonResultsAdvanced.text= "Ver Resultados" }
             }
         }
-
-        // SI SE QUIERE INSERTAR ALGO A LA BASE DE DATOS, SE PUEDE HACER CON viewModeldb.NOMBRE_FUNCION
-        // LAS FUNCIONES DISPONIBLES SON LAS MISMAS QUE PARA UsuarioDao
-        lifecycleScope.launch {
-            // Asi se debe de utilizar, por poner algun ejemplo
-            //viewModeldb.getAllUsuarios()
-        }
-
 
         // Inflate the layout for this fragment
         return binding.root

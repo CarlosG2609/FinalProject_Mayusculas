@@ -3,4 +3,33 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ejemplo">Ejemplo</string>
+    <string name="clear">Clear</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="instruccionesAdvanced">Selecciona las palabras que llevan mayúscula inicial...</string>
+    <string name="ejercicios_avanzados">Ejercicios Avanzados</string>
+    <string name="principiante">Ejercicios Sencillos</string>
+    <string name="instruccionesPrincipiante">Selecciona la letra que se escribe con mayúscula...</string>
+    <string name="resultados_de_ejercicios">Resultados de Ejercicios</string>
+    <string name="instrucciones_ResultadosEjercicios">Estas son las reglas que se deben repasar:</string>
+    <string name="instrucciones_Calificaciones">La calificación de los ejercicios fue:</string>
+    <string name="tabla_de_puntuacion">Tabla de Puntuación</string>
+    <string name="inicio">Inicio</string>
+    <string name="instruccionesInicio"> Bienvenido a la aplicación de Mayúsculas o minúsculas. \nIngrese su nombre de usuario y seleccione una actividad:</string>
+    <string name="imagenLogo">imagenLogo</string>
+    <string name="ingresa_tu_usuario">Ingresa tu usuario:</string>
+    <string name="reglas">Reglas</string>
+    <string name="ejercicios">Ejercicios</string>
+    <string name="nombre_hint">Nombre</string>
+    <string name="mejores_puntuaciones">Mejores Puntuaciones</string>
+    <string name="instruccionesTablaPuntuaciones">Estas son las mejores puntuaciones del juego...</string>
+    <string name="regresar_a_inicio">Regresar a Inicio</string>
+    <string name="normas_de_escritura">Normas de Escritura</string>
+    <string name="instruccionesReglas">Las siguientes reglas son las más comunes en escritura de mayúsculas y minúsculas:</string>
+    <string name="seleccion_de_modo">Selección de Modo</string>
+    <string name="instruccionesModoJuego">Seleccione un modo de juego y una dificultad para los ejercicios:</string>
+    <string name="modo_con_cronometro">Modo con Cronómetro</string>
+    <string name="basico">Básico</string>
+    <string name="en_contexto">En contexto</string>
+    <string name="modo_libre">Modo Libre</string>
+    <string name="textview">TextView</string>
 </resources>

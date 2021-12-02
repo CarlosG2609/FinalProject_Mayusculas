@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/cardview_id"
+    android:id="@+id/cardview_tiempo"
     android:layout_margin="4dp" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,8 +31,21 @@
             android:layout_marginEnd="10dp"
             android:text="@string/textview"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView_Score"
+            app:layout_constraintEnd_toStartOf="@+id/textView_Tiempo"
             app:layout_constraintStart_toEndOf="@+id/textView_Number"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView_Tiempo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="@string/textview"
+            android:textSize="12sp"
+            android:textColor="@color/secondaryLightColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView_Score"
+            app:layout_constraintStart_toEndOf="@+id/textView_User"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
