@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Chronometer
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
@@ -37,6 +38,9 @@ class AdvancedModeFragment : Fragment() {
     ): View? {
         _binding = FragmentAdvancedModeBinding.inflate(inflater, container, false)
 
+        val tiempo= binding.simpleChronometer
+        tiempo.start()
+
         var cont = 1
         viewModel.setQuestionNumber(cont)
         viewModel.resetAnswers()
@@ -58,10 +62,11 @@ class AdvancedModeFragment : Fragment() {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
             )
+            button_dynamic.setBackgroundColor(Color.parseColor("#C3BCBB"))
             button_dynamic.isAllCaps = false
             button_dynamic.text = phraseDivided[i]
             button_dynamic.setOnClickListener(View.OnClickListener{
-                button_dynamic.setBackgroundColor(Color.GREEN)
+                button_dynamic.setBackgroundColor(Color.parseColor("#1a7ece"))
                 if(button_dynamic.isPressed){
                     boolAnswers[i] = true
                 }
@@ -74,6 +79,9 @@ class AdvancedModeFragment : Fragment() {
         binding.clearButton.setOnClickListener{
             input = ""
             boolAnswers = BooleanArray(20)
+            for (i in phraseDivided.indices){
+                ll_main.getChildAt(i).setBackgroundColor(Color.parseColor("#C3BCBB"))
+            }
             Toast.makeText(context, "Se han reseteado las respuestas de esta pregunta.", Toast.LENGTH_SHORT).show()
         }
 
@@ -123,6 +131,7 @@ class AdvancedModeFragment : Fragment() {
                 val intsSecond = mutableSecond.map { it.toInt() }.toTypedArray().sorted()
                 viewModel.changeNormasB(intsSecond.toString())
                 viewModel.setQuestionNumber(cont++)
+                tiempo.stop()
 
                 findNavController().navigate(R.id.action_advancedModeFragment_to_resultadosFragment)
             }else{
@@ -164,10 +173,11 @@ class AdvancedModeFragment : Fragment() {
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT
                     )
+                    button_dynamic.setBackgroundColor(Color.parseColor("#C3BCBB"))
                     button_dynamic.isAllCaps = false
                     button_dynamic.text = phraseDivided[i]
                     button_dynamic.setOnClickListener(View.OnClickListener{
-                        button_dynamic.setBackgroundColor(Color.GREEN)
+                        button_dynamic.setBackgroundColor(Color.parseColor("#1a7ece"))
                         if(button_dynamic.isPressed){
                             boolAnswers[i] = true
                         }

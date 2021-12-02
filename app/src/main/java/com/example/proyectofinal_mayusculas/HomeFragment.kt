@@ -117,7 +117,7 @@ class HomeFragment : Fragment() {
         viewModel.setSentence("... que digan que estoy dormido y que me traigan aquí.", cont++)
         viewModel.setSentence("la dirección https://dle.rae.es/diccionario está en la lista de favoritos.", cont++)
         viewModel.setSentence("por favor me traes de la tienda un foco de 20 w.", cont++)
-        viewModel.setSentence("estimada alicia:  espero que te encuentres muy bien.", cont++)
+        viewModel.setSentence("estimada alicia: espero que te encuentres muy bien.", cont++)
         viewModel.setSentence("¿no tienes frío? ¡está helando!", cont++)
         viewModel.setSentence("daniel, ¿me puedes traer cinco manzanas, por favor?", cont++)
         viewModel.setSentence("advertencia: este medicamento debe mantenerse en refrigeración.", cont++)
