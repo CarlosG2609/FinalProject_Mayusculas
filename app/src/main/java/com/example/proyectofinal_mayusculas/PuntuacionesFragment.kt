@@ -37,6 +37,7 @@ class PuntuacionesFragment : Fragment() {
         //AQUI SE AGREGAN LA PARTE DE LAS FUNCIONES DE CADA BOTON
         binding.buttonHomeTablaPuntuacion.setOnClickListener{
             viewModel.changeScore(0)
+            viewModel.changeType("")
             findNavController().navigate(R.id.action_puntuacionesFragment_to_homeFragment)
         }
 
@@ -44,9 +45,15 @@ class PuntuacionesFragment : Fragment() {
         lifecycleScope.launch {
             val lista = viewModeldb.get10ScoreAsc(viewModel.type)
             if (lista != null) {
-                val adapter = RvAdapter(lista)
-                binding.rvTodo.adapter = adapter
-                binding.rvTodo.layoutManager = LinearLayoutManager(context)
+                if ((viewModel.type== "AvanzadoReloj")||(viewModel.type== "BasicoReloj")){
+                    val adapter = RvAdapterTiempo(lista)
+                    binding.rvTodo.adapter = adapter
+                    binding.rvTodo.layoutManager = LinearLayoutManager(context)
+                }else{
+                    val adapter = RvAdapter(lista)
+                    binding.rvTodo.adapter = adapter
+                    binding.rvTodo.layoutManager = LinearLayoutManager(context)
+                }
             }
         }
 

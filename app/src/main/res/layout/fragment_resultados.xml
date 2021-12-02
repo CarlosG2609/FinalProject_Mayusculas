@@ -4,49 +4,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ResultadosFragment">
+    tools:context=".ResultadosFragment"
+    android:layout_gravity="center"
+    android:foregroundGravity="center"
+    tools:layout_gravity="center" >
 
     <TextView
         android:id="@+id/textView_titleResultados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="Resultados de Ejercicios"
+        android:layout_marginTop="10dp"
+        android:text="@string/resultados_de_ejercicios"
+        android:fontFamily="sans-serif-black"
+        android:textColor="#039BE5"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_tablaPuntuacion"
+    <TextView
+        android:id="@+id/textView_instrucciones_ResultadosEjer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:text="Tabla de Puntuación"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/instrucciones_ResultadosEjercicios"
+        android:textColor="@color/secondaryDarkColor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView_outputCalificacion"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="55dp"
-        android:ems="10"
-        android:textAlignment="center"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_tablaPuntuacion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_titleResultados" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTodoRepaso"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/textView_outputCalificacion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_titleResultados" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_instrucciones_ResultadosEjer" />
 
+    <TextView
+        android:id="@+id/textView_Calificaciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="15dp"
+        android:text="@string/instrucciones_Calificaciones"
+        android:textColor="@color/secondaryDarkColor"
+        app:layout_constraintBottom_toTopOf="@+id/button_tablaPuntuacion"
+        app:layout_constraintEnd_toStartOf="@id/textView_outputCalificacion"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/textView_outputCalificacion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_tablaPuntuacion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/textView_Calificaciones" />
+
+    <Button
+        android:id="@+id/button_tablaPuntuacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/tabla_de_puntuacion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

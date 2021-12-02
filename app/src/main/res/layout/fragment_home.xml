@@ -4,13 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".HomeFragment"
+    android:layout_gravity="center"
+    android:foregroundGravity="center"
+    tools:layout_gravity="center" >
 
-
-    <ImageView
-        android:id="@+id/imageView"
+    <TextView
+        android:id="@+id/textView_titleHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/inicio"
+        android:fontFamily="sans-serif-black"
+        android:textColor="#039BE5"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_instruccionesInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/instruccionesInicio"
+        android:textColor="@color/secondaryDarkColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_titleHome" />
+
+    <ImageView
+        android:id="@+id/imageView_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/imagenLogo"
         android:scaleType="fitCenter"
         android:src="@drawable/logo_centroescritura"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,45 +45,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView_titleHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="Home"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_ejercicios"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="35dp"
-        android:text="Ejercicios"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_reglas"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button_reglas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reglas"
-        app:layout_constraintBottom_toBottomOf="@+id/button_ejercicios"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_ejercicios"
-        app:layout_constraintTop_toTopOf="@+id/button_ejercicios" />
-
-    <TextView
         android:id="@+id/textView_Nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"
-        android:text="Ingresa tu usuario:"
+        android:text="@string/ingresa_tu_usuario"
+        android:textColor="@color/secondaryDarkColor"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/button_ejercicios"
         app:layout_constraintStart_toStartOf="parent" />
@@ -66,14 +60,42 @@
         android:id="@+id/plaintext_inputNombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:ems="10"
-        android:hint="Nombre"
+        android:hint="@string/nombre_hint"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:textAlignment="center"
-        android:textSize="17sp"
+        android:textColor="@color/primaryColor"
+        android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView_Nombre"
+        app:layout_constraintBottom_toTopOf="@id/button_reglas"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView_Nombre" />
+        app:layout_constraintStart_toEndOf="@+id/textView_Nombre"
+        tools:ignore="TextContrastCheck"
+        android:autofillHints="" />
 
+    <Button
+        android:id="@+id/button_ejercicios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/ejercicios"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_reglas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/reglas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.935"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Nombre"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

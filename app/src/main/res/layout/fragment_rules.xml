@@ -3,38 +3,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".RulesFragment">
+    tools:context=".RulesFragment"
+    android:layout_gravity="center"
+    android:foregroundGravity="center"
+    tools:layout_gravity="center" >
 
     <TextView
-        android:id="@+id/textView_Reglas"
+        android:id="@+id/textView_titleReglas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Reglas"
+        android:text="@string/normas_de_escritura"
+        android:fontFamily="sans-serif-black"
+        android:textColor="#039BE5"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_home_reglas"
+    <TextView
+        android:id="@+id/textView_instruccionesReglas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:text="Ir a Inicio"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/instruccionesReglas"
+        android:textColor="@color/secondaryDarkColor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_titleReglas" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTodoRules"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/button_home_reglas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_Reglas" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_instruccionesReglas" />
 
+    <Button
+        android:id="@+id/button_home_reglas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/regresar_a_inicio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

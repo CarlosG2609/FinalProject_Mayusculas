@@ -11,12 +11,14 @@ class ProjectViewModel: ViewModel() {
     private var _name: String= ""
     private var _score: Int= 0
     private var _type: String= ""
+    private var _tiempo: String= ""
     private val _todos= mutableListOf<Todo>()
     private var _normasA: String= ""
     private var _normasB: String= ""
     private var _sentences = arrayOfNulls<String>(50)
     private var _answers = arrayOfNulls<String>(50)
     private var _appliedRules= arrayOfNulls<String>(50)
+    private var _appliedRulesBasic= arrayOfNulls<String>(50)
     private var _words = arrayOfNulls<String>(100)
     private var _wordAnswers = arrayOfNulls<String>(100)
     private var _questionNumber: Int = 1
@@ -27,12 +29,14 @@ class ProjectViewModel: ViewModel() {
     val name get() = _name
     val score get() = _score
     val type get() = _type
+    val tiempo get() = _tiempo
     val todo= _todos
     val normasA get() = _normasA
     val normasB get() = _normasB
     val sentence get() = _sentences
     val answers get() = _answers
     val appliedRules get() = _appliedRules
+    val appliedRulesBasic get() = _appliedRulesBasic
     val word get() = _words
     val wordAnswers get() = _wordAnswers
     val questionNumber get() = _questionNumber
@@ -50,6 +54,9 @@ class ProjectViewModel: ViewModel() {
     fun changeType(nuevoType: String){
         _type= nuevoType
     }
+    fun changeTiempo(nuevoTiempo: String){
+        _tiempo= nuevoTiempo
+    }
     fun changeNormasA(nuevoString: String){
         _normasA= nuevoString
     }
@@ -64,6 +71,9 @@ class ProjectViewModel: ViewModel() {
     }
     fun setAppliedRules(s: String, i: Int){
         _appliedRules[i]= s
+    }
+    fun setAppliedRulesBasic(s: String, i: Int){
+        _appliedRulesBasic[i]= s
     }
     fun setWordAnswer(s:String, i:Int){
         _wordAnswers[i] = s
@@ -85,6 +95,9 @@ class ProjectViewModel: ViewModel() {
     }
     fun getAppliedRules(i: Int): String{
         return _appliedRules[i].toString()
+    }
+    fun getAppliedRulesBasic(i: Int): String{
+        return _appliedRulesBasic[i].toString()
     }
     fun setQuestionNumber(i: Int){
         _questionNumber = i
