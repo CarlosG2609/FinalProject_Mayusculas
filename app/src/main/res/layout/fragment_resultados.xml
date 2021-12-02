@@ -7,7 +7,7 @@
     tools:context=".ResultadosFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_titleResultados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -27,19 +27,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/plaintext_outputCalificacion"
+    <TextView
+        android:id="@+id/textView_outputCalificacion"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="55dp"
         android:ems="10"
-        android:hint="Calificación"
-        android:inputType="number"
         android:textAlignment="center"
         android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@+id/button_tablaPuntuacion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTodoRepaso"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView_outputCalificacion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_titleResultados" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

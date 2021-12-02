@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.proyectofinal_mayusculas.databinding.FragmentResultadosBinding
 import com.example.proyectofinal_mayusculas.viewmodels.ProjectViewModel
 import com.example.proyectofinal_mayusculas.viewmodels.UsuarioViewModel
@@ -35,25 +37,31 @@ class ResultadosFragment : Fragment() {
 
         // Se escribe la calificacion de usuario almacenado en la corrida actual del programa
         // (por si se cambia de pantalla, que se guarde la info)
-        binding.plaintextOutputCalificacion.setText(viewModel.score.toString())
+        binding.textViewOutputCalificacion.text = (viewModel.rightAnswers.toDouble() / viewModel.questionNumber.toDouble() * 100).toInt().toString()
+
+        if (viewModel.repaso.size == 0){
+            loadRepaso()
+        }
+
+        // Inicializar el adaptador y utilizar el RecyclerView
+        val adapter = RvAdapterRules(viewModel.repaso)
+        binding.rvTodoRepaso.adapter= adapter
+        binding.rvTodoRepaso.layoutManager = LinearLayoutManager(context)
+
 
         //AQUI SE AGREGAN LA PARTE DE LAS FUNCIONES DE CADA BOTON
         binding.buttonTablaPuntuacion.setOnClickListener{
-            val iCalif= binding.plaintextOutputCalificacion.text.toString().toInt()
+            val iCalif= binding.textViewOutputCalificacion.text.toString().toInt()
             viewModel.changeScore(iCalif)
-
-
-            // viewModel.todo.add(Todo(viewModel.name, viewModel.score.toInt()))
-            // Esta línea anterior ya no nos sirve, porque ahora la base de datos es viewModeldb, y esta anterior fue solo para el viewmodel normal
 
             // Aqui se puede poner un if dentro de las siguientes lineas para definir en que casos SI y en que casos NO guardar la info en la base de datos
             lifecycleScope.launch{
                 if (viewModel.type != "") { // FALTA AGREGAR CONDICION: AND con viewModel.name diferente de "" (para que no se agreguen usuarios sin nombre)
                     viewModeldb.addUsuario(Usuario(viewModel.name, viewModel.score, viewModel.type, Date().toString()))
                     viewModel.changeType("")
+                    Toast.makeText(context, "Se ha registrado la calificación en la base de datos.", Toast.LENGTH_SHORT).show()
                 }
             }
-
 
             findNavController().navigate(R.id.action_resultadosFragment_to_puntuacionesFragment)
         }
@@ -61,6 +69,30 @@ class ResultadosFragment : Fragment() {
 
         // Inflate the layout for this fragment
         return binding.root
+    }
+
+    private fun loadRepaso() {
+        viewModel.repaso.add(Todorules("","Reglas de mayúsculas por repasar ..."))
+
+        val reglasA= viewModel.normasA.substring(1, viewModel.normasA.length-1).split(", ").toTypedArray()    // Array
+        for (i in reglasA.indices){
+            for (j in viewModel.rules.indices){
+                if ((reglasA.elementAt(i)+"a").trim() == viewModel.rules.elementAt(j).id.trim()){
+                    viewModel.repaso.add(Todorules(viewModel.rules.elementAt(j).id, viewModel.rules.elementAt(j).regla))
+                }
+            }
+        }
+
+        viewModel.repaso.add(Todorules("",""))
+        viewModel.repaso.add(Todorules("","Reglas de minúsculas por repasar ..."))
+        val reglasB= viewModel.normasB.substring(1, viewModel.normasB.length-1).split(", ").toTypedArray()    // Array
+        for (i in reglasB.indices){
+            for (j in viewModel.rules.indices){
+                if ((reglasB.elementAt(i)+"b").trim() == viewModel.rules.elementAt(j).id.trim()){
+                    viewModel.repaso.add(Todorules(viewModel.rules.elementAt(j).id, viewModel.rules.elementAt(j).regla))
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {

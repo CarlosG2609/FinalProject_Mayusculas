@@ -9,8 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.proyectofinal_mayusculas.databinding.FragmentAdvancedModeBinding
@@ -42,8 +42,10 @@ class AdvancedModeFragment : Fragment() {
         viewModel.resetAnswers()
 
 
-        //viewModel.showAnswers()
         var input = ""
+        var sNormas= ""
+        var sNormasFinal= ""
+
         val ll_main = binding.llAdvancedLayout as LinearLayout
         var randomNumber = (1..38).random()
         var answer = viewModel.getAnswer(randomNumber)
@@ -67,16 +69,16 @@ class AdvancedModeFragment : Fragment() {
             ll_main.addView(button_dynamic)
         }
 
+
+        //AQUI SE AGREGAN LA PARTE DE LAS FUNCIONES DE CADA BOTON
         binding.clearButton.setOnClickListener{
             input = ""
             boolAnswers = BooleanArray(20)
+            Toast.makeText(context, "Se han reseteado las respuestas de esta pregunta.", Toast.LENGTH_SHORT).show()
         }
 
-
-
-        //AQUI SE AGREGAN LA PARTE DE LAS FUNCIONES DE CADA BOTON
         binding.buttonResultsAdvanced.setOnClickListener{
-            if(viewModel.questionNumber == 10) {
+            if(viewModel.questionNumber == 9) {
                 input = ""
                 var aux = true
                 for(i in phraseDivided.indices){
@@ -93,11 +95,35 @@ class AdvancedModeFragment : Fragment() {
                     input = "0"
                 }
                 if(answer == input){
-                    println("Correcto")
+                    Toast.makeText(context, "Respuesta Correcta", Toast.LENGTH_SHORT).show()
                     viewModel.addRigthAnswer()
                 }else{
-                    println("Mal")
+                    Toast.makeText(context, "Respuesta Incorrecta", Toast.LENGTH_SHORT).show()
+                    sNormas+= viewModel.getAppliedRules(randomNumber)+","
                 }
+
+                sNormasFinal= sNormas.substring(0, sNormas.length-1)                  // String
+                val aNormasFinal= sNormasFinal.split(",").toTypedArray()    // Array
+                val sortedNormas= aNormasFinal.distinct().groupBy { it.last() }
+
+                var firstRules= sortedNormas.values.elementAt(0)
+                val mutableFirst: MutableList<Int> = mutableListOf()
+                for (i in firstRules.indices){
+                    mutableFirst.add(firstRules.elementAt(i).substring(0, firstRules.elementAt(i).length -1).toInt())
+                }
+                val intsFirst = mutableFirst.map { it.toInt() }.toTypedArray().sorted()
+                viewModel.changeNormasA(intsFirst.toString())
+
+
+                var secondRules= sortedNormas.values.elementAt(1)
+                val mutableSecond: MutableList<Int> = mutableListOf()
+                for (i in secondRules.indices){
+                    mutableSecond.add(secondRules.elementAt(i).substring(0, secondRules.elementAt(i).length -1).toInt())
+                }
+                val intsSecond = mutableSecond.map { it.toInt() }.toTypedArray().sorted()
+                viewModel.changeNormasB(intsSecond.toString())
+                viewModel.setQuestionNumber(cont++)
+
                 findNavController().navigate(R.id.action_advancedModeFragment_to_resultadosFragment)
             }else{
                 input = ""
@@ -115,14 +141,13 @@ class AdvancedModeFragment : Fragment() {
                 if(input == ""){
                     input = "0"
                 }
-                println("Answer $answer")
-                println("Input $input")
                 if(answer == input){
-                    println("Correcto")
+                    Toast.makeText(context, "Respuesta Correcta", Toast.LENGTH_SHORT).show()
                     viewModel.addRigthAnswer()
 
                 }else{
-                    println("Mal")
+                    sNormas+= viewModel.getAppliedRules(randomNumber)+","
+                    Toast.makeText(context, "Respuesta Incorrecta", Toast.LENGTH_SHORT).show()
                 }
 
                 viewModel.setQuestionNumber(cont++)
@@ -130,7 +155,6 @@ class AdvancedModeFragment : Fragment() {
                 input = ""
                 randomNumber = (1..38).random()
                 answer = viewModel.getAnswer(randomNumber)
-
                 phraseDivided = viewModel.getSentence(randomNumber).split(" ").toTypedArray()
                 boolAnswers = BooleanArray(20)
                 //boolAnswers.fill(false, 1,20)
@@ -150,11 +174,7 @@ class AdvancedModeFragment : Fragment() {
                     })
                     ll_main.addView(button_dynamic)
                 }
-
             }
-            println("Question Number: " + viewModel.questionNumber)
-            println("Right Answers: " + viewModel.rightAnswers)
-
         }
 
         // SI SE QUIERE INSERTAR ALGO A LA BASE DE DATOS, SE PUEDE HACER CON viewModeldb.NOMBRE_FUNCION
