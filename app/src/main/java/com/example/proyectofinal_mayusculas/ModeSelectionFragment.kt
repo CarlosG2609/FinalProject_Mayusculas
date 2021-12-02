@@ -34,18 +34,22 @@ class ModeSelectionFragment : Fragment() {
         //AQUI SE AGREGAN LA PARTE DE LAS FUNCIONES DE CADA BOTON
         binding.buttonBasicoReloj.setOnClickListener{
             viewModel.changeType("BasicoReloj")
+            viewModel.repaso.clear()
             findNavController().navigate(R.id.action_modeSelectionFragment_to_basicModeFragment)
         }
         binding.buttonAvanzadoReloj.setOnClickListener{
             viewModel.changeType("AvanzadoReloj")
+            viewModel.repaso.clear()
             findNavController().navigate(R.id.action_modeSelectionFragment_to_advancedModeFragment)
         }
         binding.buttonBasicoLibre.setOnClickListener{
             viewModel.changeType("BasicoLibre")
+            viewModel.repaso.clear()
             findNavController().navigate(R.id.action_modeSelectionFragment_to_basicModeFragment)
         }
         binding.buttonAvanzadoLibre.setOnClickListener{
             viewModel.changeType("AvanzadoLibre")
+            viewModel.repaso.clear()
             findNavController().navigate(R.id.action_modeSelectionFragment_to_advancedModeFragment)
         }
 
