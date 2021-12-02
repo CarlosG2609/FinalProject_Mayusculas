@@ -52,6 +52,7 @@ class BasicModeFragment : Fragment() {
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
                 )
+                button_dynamic.setBackgroundColor(Color.parseColor("#C3BCBB"))
                 button_dynamic.isAllCaps = false
                 button_dynamic.text = wordDivided[i].toString()
                 if(wordDivided.length > 9){
@@ -62,7 +63,7 @@ class BasicModeFragment : Fragment() {
                     button_dynamic.textSize = 30.toFloat()
                 }
                 button_dynamic.setOnClickListener{
-                    button_dynamic.setBackgroundColor(Color.GREEN)
+                    button_dynamic.setBackgroundColor(Color.parseColor("#1a7ece"))
                     if(button_dynamic.isPressed){
                         boolAnswers[i] = true
                     }
@@ -73,6 +74,9 @@ class BasicModeFragment : Fragment() {
         binding.clearBasicButton.setOnClickListener{
             input = ""
             boolAnswers = BooleanArray(30)
+            for (i in wordDivided.indices){
+                ll_main.getChildAt(i).setBackgroundColor(Color.parseColor("#C3BCBB"))
+            }
             println("Reset")
         }
 
@@ -144,6 +148,7 @@ class BasicModeFragment : Fragment() {
                             LinearLayout.LayoutParams.WRAP_CONTENT,
                             ViewGroup.LayoutParams.WRAP_CONTENT
                         )
+                        button_dynamic.setBackgroundColor(Color.parseColor("#C3BCBB"))
                         button_dynamic.isAllCaps = false
                         button_dynamic.text = wordDivided[i].toString()
                         if(wordDivided.length > 9){
@@ -154,7 +159,7 @@ class BasicModeFragment : Fragment() {
                             button_dynamic.textSize = 30.toFloat()
                         }
                         button_dynamic.setOnClickListener{
-                            button_dynamic.setBackgroundColor(Color.GREEN)
+                            button_dynamic.setBackgroundColor(Color.parseColor("#1a7ece"))
                             if(button_dynamic.isPressed){
                                 boolAnswers[i] = true
                             }
@@ -219,8 +224,8 @@ class BasicModeFragment : Fragment() {
     private fun loadWordAnswers(){
         var cont = 1
         viewModel.setWordAnswer("0", cont++)
-        viewModel.setWordAnswer("1,7", cont++)
-        viewModel.setWordAnswer("1,7", cont++)
+        viewModel.setWordAnswer("1,8", cont++)
+        viewModel.setWordAnswer("1,8", cont++)
         viewModel.setWordAnswer("0", cont++)
         viewModel.setWordAnswer("0", cont++)
         viewModel.setWordAnswer("0", cont++)
@@ -232,8 +237,8 @@ class BasicModeFragment : Fragment() {
         viewModel.setWordAnswer("1", cont++)
         viewModel.setWordAnswer("1", cont++)
         viewModel.setWordAnswer("0", cont++)
-        viewModel.setWordAnswer("4", cont++)
-        viewModel.setWordAnswer("1,6", cont++)
+        viewModel.setWordAnswer("5", cont++)
+        viewModel.setWordAnswer("1,8", cont++)
         viewModel.setWordAnswer("0", cont++)
         viewModel.setWordAnswer("1,2,3,4", cont++)
         viewModel.setWordAnswer("1,2,3", cont++)
