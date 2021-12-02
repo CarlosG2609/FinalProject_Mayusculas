@@ -84,7 +84,7 @@ class AdvancedModeFragment : Fragment() {
         binding.clearButton.setOnClickListener{
             input = ""
             boolAnswers = BooleanArray(20)
-            for (i in phraseDivided.indices){
+            for (i in 0..ll_main.childCount-1){
                 ll_main.getChildAt(i).setBackgroundColor(Color.parseColor("#C3BCBB"))
             }
             Toast.makeText(context, "Se han reseteado las respuestas de esta pregunta.", Toast.LENGTH_SHORT).show()

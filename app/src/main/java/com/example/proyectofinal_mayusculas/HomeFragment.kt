@@ -312,10 +312,10 @@ class HomeFragment : Fragment() {
     }
     private fun loadAppliedRulesBasic(){
         var cont = 1
-        viewModel.setAppliedRulesBasic("", cont++)
         viewModel.setAppliedRulesBasic("1a", cont++)
         viewModel.setAppliedRulesBasic("1a", cont++)
-        viewModel.setAppliedRulesBasic("", cont++)
+        viewModel.setAppliedRulesBasic("1a", cont++)
+        viewModel.setAppliedRulesBasic("14b", cont++)
         viewModel.setAppliedRulesBasic("4b", cont++)
         viewModel.setAppliedRulesBasic("4b", cont++)
         viewModel.setAppliedRulesBasic("4b", cont++)
@@ -326,12 +326,12 @@ class HomeFragment : Fragment() {
         viewModel.setAppliedRulesBasic("1a", cont++)
         viewModel.setAppliedRulesBasic("1a", cont++)
         viewModel.setAppliedRulesBasic("8b", cont++)
-        viewModel.setAppliedRulesBasic("", cont++)
+        viewModel.setAppliedRulesBasic("1a", cont++)
         viewModel.setAppliedRulesBasic("1a", cont++)
         viewModel.setAppliedRulesBasic("8b", cont++)
-        viewModel.setAppliedRulesBasic("", cont++)
-        viewModel.setAppliedRulesBasic("", cont++)
-        viewModel.setAppliedRulesBasic("", cont++)
+        viewModel.setAppliedRulesBasic("4a", cont++)
+        viewModel.setAppliedRulesBasic("4a", cont++)
+        viewModel.setAppliedRulesBasic("4a", cont++)
         viewModel.setAppliedRulesBasic("8b", cont++)
         viewModel.setAppliedRulesBasic("8b", cont++)
         viewModel.setAppliedRulesBasic("8b", cont++)
@@ -351,9 +351,9 @@ class HomeFragment : Fragment() {
         viewModel.setAppliedRulesBasic("8b", cont++)
         viewModel.setAppliedRulesBasic("8b", cont++)
         viewModel.setAppliedRulesBasic("8b", cont++)
-        viewModel.setAppliedRulesBasic("", cont++)
+        viewModel.setAppliedRulesBasic("7b", cont++)
         viewModel.setAppliedRulesBasic("9a,7b", cont++)
-        viewModel.setAppliedRulesBasic("9b,7b", cont++)
+        viewModel.setAppliedRulesBasic("9a,7b", cont++)
     }
 
     override fun onDestroyView() {

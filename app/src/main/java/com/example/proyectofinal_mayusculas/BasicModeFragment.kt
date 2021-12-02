@@ -82,7 +82,8 @@ class BasicModeFragment : Fragment() {
         binding.clearBasicButton.setOnClickListener{
             input = ""
             boolAnswers = BooleanArray(30)
-            for (i in wordDivided.indices){
+            for (i in 0..ll_main.childCount-1){
+                //println(wordDivided)
                 ll_main.getChildAt(i).setBackgroundColor(Color.parseColor("#C3BCBB"))
             }
             Toast.makeText(context, "Se han reseteado las respuestas de esta pregunta.", Toast.LENGTH_SHORT).show()
@@ -110,7 +111,7 @@ class BasicModeFragment : Fragment() {
                     viewModel.addRigthAnswer()
                 }else{
                     Toast.makeText(context, "Respuesta Incorrecta", Toast.LENGTH_SHORT).show()
-                    sNormas+= viewModel.getAppliedRules(randomNumber)+","
+                    sNormas+= viewModel.getAppliedRulesBasic(randomNumber)+","
                 }
 
 
@@ -123,7 +124,7 @@ class BasicModeFragment : Fragment() {
                     if (firstRules != null){
                         val mutableFirst: MutableList<Int> = mutableListOf()
                         for (i in firstRules.indices){
-                            mutableFirst.add(firstRules.elementAt(i).substring(0, firstRules.elementAt(i).length -1).toInt())
+                            mutableFirst.add(firstRules.elementAt(i).substring(0, firstRules.elementAt(i).length - 1).toInt())
                         }
                         val intsFirst = mutableFirst.map { it.toInt() }.toTypedArray().sorted()
                         viewModel.changeNormasA(intsFirst.toString())
@@ -168,7 +169,7 @@ class BasicModeFragment : Fragment() {
                     Toast.makeText(context, "Respuesta Correcta", Toast.LENGTH_SHORT).show()
                     viewModel.addRigthAnswer()
                 }else{
-                    sNormas+= viewModel.getAppliedRules(randomNumber)+","
+                    sNormas+= viewModel.getAppliedRulesBasic(randomNumber)+","
                     Toast.makeText(context, "Respuesta Incorrecta", Toast.LENGTH_SHORT).show()
                 }
 
@@ -207,6 +208,8 @@ class BasicModeFragment : Fragment() {
                 if (viewModel.questionNumber == 9){ binding.buttonResultsBasic.text= "Ver Resultados" }
             }
         }
+
+
 
         // Inflate the layout for this fragment
         return binding.root
